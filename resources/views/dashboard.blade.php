@@ -27,7 +27,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Quiz Name</th>
-                                            <th>Quiz Code</th>
+                                            <th>Quiz Url</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -36,14 +36,16 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$quiz->quizTitle}}</td>
-                                            <td>http://localhost:8000/quiz/{{$quiz->code}}</td>
-                                            <td>
-                                               <a href="/dashboard/quiz/{{$quiz->id}}/edit" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
-                                               <a href="/dasboard/quiz/{{$quiz->id}}" class="btn btn-secondary"><i class="bi bi-eye-fill"></i></a>
-                                               <form action="/dashboard/quiz/{{$quiz->id}}" method="POST" class="d-inline">
+                                            <td > 
+                                                <a href="http://localhost:8000/quiz/{{$quiz->code}} ">http://localhost:8000/quiz/{{$quiz->code}} </a>
+                                            </td>
+                                            <td class="justify-content-center">
+                                                <a href="/quiz/{{$quiz->code}}" class="btn btn-secondary py-2 mx-2"><i class="bi bi-eye-fill"></i></a>
+                                               <a href="/dashboard/quiz/{{$quiz->code}}/edit" class="btn btn-primary py-2 mx-2"><i class="bi bi-pencil-square"></i></a>
+                                               <form action="/dashboard/quiz/{{$quiz->code}}" method="POST" class="d-inline">
                                                 @method('delete')
                                                 @csrf
-                                               <button type ="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                               <button type ="submit" class="btn btn-danger py-2 mx-2"><i class="bi bi-trash-fill"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -59,11 +61,22 @@
 
     @endsection
     @section('script')
-    <script src="../../admin/dist/assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script src="../../../admin/dist/assets/vendors/simple-datatables/simple-datatables.js"></script>
     <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
+
+
+        function copy{
+            var copyText = document.getElementById("code");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+         navigator.clipboard.writeText(copyText.value);
+         alert("Copied the text: " + copyText.value);
+        }
+
+
     </script>
     @endsection
 

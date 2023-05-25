@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizAnswerController;
@@ -23,13 +24,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/quiz/{code}', [GuestController::class, 'create']);
+Route::post('/quiz/{code}', [GuestController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('/dashboard/quiz',QuizController::class);
+    Route::delete('/dashboard/quiz/{code}',[QuizController::class,'destroy']);
+    Route::resource('/dashboard/quiz',QuizController::class)->except(['destory']);
     Route::resource('/dashboard/user',UserController::class);
     Route::get('/dashboard/result/{code}', [QuizAnswerController::class, 'result']);
     Route::resource('/dashboard/result',QuizAnswerController::class)->except(['show']);
@@ -37,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/logout',  [AuthenticatedSessionController::class, 'destroy']);
 
 require __DIR__.'/auth.php';
 

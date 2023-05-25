@@ -6,6 +6,14 @@
                             <div class="col-12 col-md-6 order-md-1 order-last">
                                 <h3>user list</h3>
                                 <a href="/dashboard/user/create" class="btn btn-primary mb-3">Create User</a>
+                                @if(Session::has('success'))
+                                <div class="alert alert-success alert-dismissible show fade col-8">
+                                    {{ Session::get('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                                @endif
+                                
                             </div>
                             <div class="col-12 col-md-6 order-md-2 order-first">
                                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -32,6 +40,7 @@
                                             <th>No</th>
                                             <th>Name</th>
                                             <th>Email</th>
+                                            <th>Role</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -41,9 +50,11 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
+                                            <td>{{$user->role}}</td>
                                             <td>
+                                                <a href="/dashboard/user/{{$user->id}}" class="btn btn-secondary"><i class="bi bi-eye-fill"></i></a>
                                                <a href="/dashboard/user/{{$user->id}}/edit" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
-                                               <a href="/dasboard/user/{{$user->id}}" class="btn btn-secondary"><i class="bi bi-eye-fill"></i></a>
+                                               
                                                <form action="/dashboard/user/{{$user->id}}" method="POST" class="d-inline">
                                                 @method('delete')
                                                 @csrf

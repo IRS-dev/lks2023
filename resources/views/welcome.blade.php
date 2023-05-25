@@ -69,11 +69,13 @@
                 <div class="container my-5 py-5 px-lg-5">
                     <div class="row g-5 py-5">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated zoomIn">All in one SEO tool need to grow your business rapidly</h1>
-                            <p class="text-white pb-3 animated zoomIn">Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit justo amet ipsum vero ipsum clita lorem</p>
+                            <h1 class="text-white mb-4 animated zoomIn">Unleash Your Quiz Power! Join, Create, and Conquer</h1>
+                            <p class="text-white pb-3 animated zoomIn">Welcome to Quizz, you can effortlessly joining quiz and create, customize, also manage all your questionnaires in one convenient place. Simplify your form creation process and unlock the full potential of your surveys with ease</p>
                             <div class="position-relative w-100 mt-3">
-                                <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Enter Quiz Code" style="height: 48px;">
-                                <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
+                                <form action="">
+                                <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Enter Quiz Code"  id="url" style="height: 48px;">
+                                <button type="button" id="search" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-6 text-center text-lg-start">
@@ -93,9 +95,9 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
                             <h6 class="position-relative text-primary ps-4">About Us</h6>
-                            <h2 class="mt-2">The best SEO solution with 10 years of experience</h2>
+                            <h2 class="mt-2">Know More About Us</h2>
                         </div>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                        <p class="mb-4">Quizz built with Laravel, was created with the aim of providing a seamless platform for individuals to efficiently and effectively manage and work on questionnaires, catering to the needs of diverse users.</p>
                         <div class="d-flex align-items-center mt-4">
                             <a class="btn btn-primary rounded-pill px-4 me-3" href="">Read More</a>
                             <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-facebook-f"></i></a>
@@ -194,16 +196,19 @@
                 <div class="row g-5">
                     <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
                         <h6 class="position-relative d-inline text-primary ps-4">How It Work?</h6>
-                        <h2 class="mt-2">How This Quiz Work?</h2>
+                        <h2 class="mt-2">Get To Know How This Works</h2>
                     </div>
                     <div class="col-lg-6">
                         <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="../../landingpage/img/make.png">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
-                            <h2 class="mt-2">The best SEO solution with 10 years of experience</h2>
+                            <h2 class="mt-2">Create and Publish 
+                                All Your Questionnaire!</h2>
                         </div>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                        <p class="mb-4">
+                            Effortlessly create and customize various types of questionnaires, tailoring them to your specific requirements then generate a unique quiz code and share it seamlessly with your intended audience through a user-friendly website.
+                        </p>
                         <div class="d-flex align-items-center mt-4">
                             <a class="btn btn-primary rounded-pill px-4 me-3" href="">Read More</a>
                         </div>
@@ -216,9 +221,12 @@
                 <div class="row g-5">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
-                            <h2 class="mt-2">The best SEO solution with 10 years of experience</h2>
+                            <h2 class="mt-2">Joining and Doing
+                                All the Quiz Efficiently </h2>
                         </div>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                        <p class="mb-4">
+                            To join a quiz, simply enter the unique code provided, allowing you to participate in quizzes effortlessly and efficiently. With the flexibility of taking quizzes anywhere and at any time, this user-friendly platform ensures a seamless experience for both quiz takers and organizers.
+                        </p>
                         <div class="d-flex align-items-center mt-4">
                             <a class="btn btn-primary rounded-pill px-4 me-3" href="">Read More</a>
                         </div>
@@ -237,9 +245,11 @@
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
-                            <h2 class="mt-2">The best SEO solution with 10 years of experience</h2>
+                            <h2 class="mt-2">Find and View The Results </h2>
                         </div>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                        <p class="mb-4">
+                            As a quiz maker, you can get all the answers and results and display them as informative and effective graphs. On the other hand the respondents can know the value of what has been done.
+                        </p>
                         <div class="d-flex align-items-center mt-4">
                             <a class="btn btn-primary rounded-pill px-4 me-3" href="">Read More</a>
                         </div>
@@ -256,9 +266,9 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-3">
                         <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p><i class="fa fa-map-marker-alt me-3"></i>Sleman,Yogyakarta</p>
+                        <p><i class="fa fa-phone-alt me-3"></i>+62 89753580</p>
+                        <p><i class="fa fa-envelope me-3"></i>quizz@gmail.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -269,7 +279,7 @@
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <h5 class="text-white mb-4">Newsletter</h5>
-                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>
+                        <p>If you have any comment ro suggestion please contact us!</p>
                         <div class="position-relative w-100 mt-3">
                             <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
                             <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
@@ -295,7 +305,17 @@
     <script src="../../landingpage/lib/isotope/isotope.pkgd.min.js"></script>
     <script src="../../landingpage/lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
+    <!-- Template Javascript -->    
+
+    <script>
+    $(function() {
+    $("#search").click(function() {
+    var url = $("#url").val();
+
+    window.location.href = url;
+  });
+});
+    </script>
     <script src="../../landingpage/js/main.js"></script>
 </body>
 

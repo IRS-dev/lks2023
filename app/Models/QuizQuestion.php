@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Quiz;
+use App\Models\QuestionValue;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +14,11 @@ class QuizQuestion extends Model
     ];
 
     function quiz(){
-		return $this->belongsTo('App\Models\Quiz','quiz_id');
+		return $this->belongsTo(Quiz::class);
+	}
+
+    function questionvalue(){
+		return $this->hasMany(QuestionValue::class);
 	}
 
 }

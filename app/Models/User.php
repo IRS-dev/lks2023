@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Quiz;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -43,4 +44,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    function quiz(){
+		return $this->hasMany(Quiz::class);
+	}
 }

@@ -32,23 +32,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'name' => 'required','max:255',
             'email' => 'required', 'email',
             'role' => 'required',
             'password' => 'required', 'max:255'
         ]);
+        
         $validated['password'] = Hash::make($validated['password']);
-        dd($validated);
-        User::create($validated);
-        redirect('/dashboard/user');
+        $user = new User;
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->role = $validated['role'];
+        $user->password = $validated['password'];
+        $user->save();
+        return redirect('/dashboard/user')->with(['success' => 'User had been added']);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show( $id)
     {
         return view('admin.user.show',[
             'user' => User::find($id)
@@ -58,9 +62,12 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.user.edit',[
+            'user' => $user
+        ]);
     }
 
     /**
@@ -68,7 +75,17 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required','max:255',
+            'email' => 'required', 'email',
+            'role' => 'required',
+        ]);
+        $user->update([
+            'name' => $request->name,
+            'email' =>$request->email,
+            'role' =>$request->role
+        ]);
+        return redirect('/dashboard/user')->with(['success' => 'User had been update']);
     }
 
     /**
@@ -76,6 +93,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        User::destroy($user->id);
+        return redirect()->back()->with(['success'=>'User has been deleted']);
     }
 }

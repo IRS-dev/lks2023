@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\QuizAnswer;
 use App\Models\Quiz;
 use App\Http\Requests\StoreQuizAnswerRequest;
@@ -14,9 +15,16 @@ class QuizAnswerController extends Controller
      */
     public function index()
     {
-        return view('admin.result.index',[
-            'quizlist' => Quiz::where('user_id',auth()->user()->id)->get()
-        ]);
+
+        if(Auth::user()->role == "admin"){
+            return view('admin.result.index',[
+                'quizlist'=> Quiz::all()
+            ]);
+        }else{
+            return view('admin.result.index',[
+                'quizlist' => Quiz::where('user_id',auth()->user()->id)->get()
+            ]);
+        }
     }
 
     /**

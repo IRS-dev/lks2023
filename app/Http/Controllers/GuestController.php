@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guest;
 use App\Models\Quiz;
+use Illuminate\Support\Str;
 use App\Http\Requests\StoreGuestRequest;
 use App\Http\Requests\UpdateGuestRequest;
 use App\Models\QuizQuestion;
@@ -23,18 +24,29 @@ class GuestController extends Controller
      */
     public function create($code)
     {
+        $quiz = Quiz::where('code',$code)->first();
+        $question = $quiz->question()->get();
+        // foreach ($question as $choice) {
+        //     $questionvalues = QuizQuestion::where('quiz_id',$choice->quiz_id)->get();
+        //     $values = $questionvalues->questionvalue()->get();
+        //     dump($values);
+        // }
+        // die();
+        
         return view('quiz',[
-            'quiz' => Quiz::where('code',$code)->first(),
-            'questions' => QuizQuestion::where()
+          'quiz' => $quiz,
+          'questions' => $question,
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGuestRequest $request)
+    public function store(StoreGuestRequest $request ,$code )
     {
-        function session() { 
+
+            
+        function sessionguest() { 
 
             $chars = "abcdefghijkmnopqrstuvwxyz023456789"; 
             srand((double)microtime()*1000000); 
@@ -51,6 +63,16 @@ class GuestController extends Controller
             return $pass; 
         
         } 
+
+        $uuidGuest = Str::uuid()->toString();
+        $guest = new Guest;
+        $guest->session = sessionguest();
+        $guest->id =$uuidGuest;
+        dd($guest);
+        $guest->save();  
+
+
+
     }
 
     /**

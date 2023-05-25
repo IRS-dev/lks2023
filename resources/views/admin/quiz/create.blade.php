@@ -15,12 +15,7 @@
                 </nav>
             </div>
         </div>
-        <div class="mb-3 col-md-12 col-sm-3">
-            <button type="submit" class="btn btn-primary short_add">&plus; Short Question</button>
-            <button type="submit" class="btn btn-primary long_add">&plus; Long Question</button>
-            <button type="submit" class="btn btn-primary single_add">&plus; Single Question</button>
-            <button type="submit" class="btn btn-primary multiple_add">&plus; Multiple Question</button>
-        </div>
+
     </div>
 <section id="basic-vertical-layouts">
     <div class="row match-height">
@@ -47,6 +42,26 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body mb-3">
+                        <div class="form form-vertical">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="first-name-vertical">Description Quiz</label>
+                                            <input type="text" id=""
+                                                class="form-control mt-3" name="desc"
+                                                placeholder="Desc Quiz">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="wrapper">
 
@@ -56,10 +71,22 @@
 
             
             </div>
-            <div class="col-12 d-flex justify-content-end">
-                <button type="submit"
-                    class="btn btn-primary mx-2 px-2 mb-3">Submit</button>
+            <div class="col-md-12 ">
+
+                    <div class="justify-content-start col-12">
+                    <button type="submit" class="btn btn-outline-primary short_add mx-2 px-2 mb-3">&plus; Short Question</button>
+                    <button type="submit" class="btn btn-outline-primary long_add mx-2 px-2 mb-3">&plus; Long Question</button>
+                    <button type="submit" class="btn btn-outline-primary single_add mx-2 px-2 mb-3">&plus; Single Question</button>
+                    <button type="submit" class="btn btn-outline-primary multiple_add mx-2 px-2 mb-3">&plus; Multiple Question</button>
+                    </div>
+                    <div class=" justify-content-end col-12">
+                    <button type="submit"
+                    class="btn btn-danger mx-2 px-2 mb-3">Cancel</button>
+                    <button type="submit"
+                    class="btn btn-primary mx-2 px-2 mb-3">Save</button>
+                    </div>
             </div>
+
         </form>
         </div>
     </div>

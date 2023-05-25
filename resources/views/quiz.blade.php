@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-@dump($quiz)
 <head>
     <meta charset="utf-8">
     <title>Quizz</title>
@@ -60,89 +59,101 @@
                     <a href="/" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3 my-2">Back</a>
                 </div>
             </nav>
-
             <div class="container-xxl py-5 bg-white mb-5">
                 <div class="container my-3 py-3 col-lg-8">
-                    <form action="/quizanswer/{{}}" method="POST">
+                    <form action="/quiz/{{$quiz->code}}" method="POST">
                         @csrf
                     <div class="card mb-3">
                         <div class="card-body">
                             <h3 class="text-center">{{$quiz->quizTitle}}</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto beatae odio alias laboriosam voluptas iure.</p>
+                            <p class="text-dark text-justify">{{$quiz->desc}}</p>
                         </div>
                     </div>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <h6 class="mb-3">Lorem ipsum dolor sit amet consectetur.</h6>
-                                <input type="text" class="form-control" id="" placeholder="">
-                              </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <h6 class="mb-3">Lorem ipsum dolor sit amet consectetur.</h6>
-                                <div class="mb-3">
-                                <textarea class="form-control" id="" ></textarea>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <h6 class="mb-3">Lorem ipsum dolor sit amet consectetur.</h6>
-                                <div class="mb-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                          Default checkbox
-                                        </label>
-                                      </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                          Default checkbox
-                                        </label>
-                                      </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                          Default checkbox
-                                        </label>
-                                      </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                          Default checkbox
-                                        </label>
+
+                    {{-- question div --}}
+                    @foreach ($questions as $question)
+                    <div>
+                            @if ($question->type == "short")
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <h6 class="mb-3 text-dark">{{$question->questionTitle}}</h6>
+                                        <input type="text" class="form-control text-dark" id="" placeholder="" name="{{$question->id}}">
                                       </div>
                                 </div>
-                              </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <h6 class="mb-3">Lorem ipsum dolor sit amet consectetur.</h6>
-                                <div class="mb-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                          Default radio
-                                        </label>
-                                      </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                          Default radio
-                                        </label>
+                            </div>
+                            @elseif ($question->type == "long")
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <h6 class="mb-3 text-dark">{{$question->questionTitle}}</h6>
+                                        <div class="mb-3">
+                                        <textarea class="form-control text-dark" id="" name="{{$question->id}}"></textarea>
+                                        </div>
                                       </div>
                                 </div>
-                              </div>
-                        </div>
-                    </div>
+                            </div>
+                            @elseif ($question->type == "single")
+                            
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <h6 class="mb-3 text-dark">{{$question->questionTitle}}</h6>
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                <label class="form-check-label text-dark" for="flexRadioDefault1">
+                                                  test
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                <label class="form-check-label text-dark" for="flexRadioDefault1">
+                                                  Default radio
+                                                </label>
+                                              </div>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+
+                            @elseif ($question->type == "multiple")
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <h6 class="mb-3 text-dark">{{$question->questionTitle}}</h6>
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label text-dark" for="flexCheckDefault">
+                                                  Default checkbox
+                                                </label>
+                                              </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label text-dark" for="flexCheckDefault">
+                                                  Default checkbox
+                                                </label>
+                                              </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label text-dark" for="flexCheckDefault">
+                                                  Default checkbox
+                                                </label>
+                                              </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label text-dark" for="flexCheckDefault">
+                                                  Default checkbox
+                                                </label>
+                                              </div>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            @endif
+                    </div> 
+                    @endforeach
                     <div class="">
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </div>
@@ -158,9 +169,9 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-3">
                         <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p><i class="fa fa-map-marker-alt me-3"></i>Sleman,Yogyakarta</p>
+                        <p><i class="fa fa-phone-alt me-3"></i>+62 89753580</p>
+                        <p><i class="fa fa-envelope me-3"></i>quizz@gmail.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -171,7 +182,7 @@
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <h5 class="text-white mb-4">Newsletter</h5>
-                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>
+                        <p>If you have any comment ro suggestion please contact us!</p>
                         <div class="position-relative w-100 mt-3">
                             <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
                             <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>

@@ -46,12 +46,15 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
+                        @if ( Auth::user()->role == "admin")
                         <li class="sidebar-item">
                             <a href="/dashboard/user" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>User</span>
                             </a>
-                        </li>
+                        </li>  
+                        @endif
+
                         <li class="sidebar-item">
                             <a href="/dashboard/result" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
@@ -102,8 +105,23 @@
                                             Profile</a></li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="#"><i
-                                                class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
+
+          
+                                    <li><button class="dropdown-item"><i
+                                                class="icon-mid bi bi-box-arrow-left me-2"></i>
+                                                <form method="POST" class="d-inline" action="{{ route('logout') }}">
+                                                    @csrf
+                        
+                                                    <x-dropdown-link :href="route('logout')"
+                                                            onclick="event.preventDefault();
+                                                                        this.closest('form').submit();">
+                                                        {{ __('Log Out') }}
+                                                    </x-dropdown-link>
+                                                </form>
+                                        </button>
+                                            
+                                            
+                                    </li>
                                 </ul>
                             </div>
                         </div>

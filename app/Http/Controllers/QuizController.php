@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quiz;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreQuizRequest;
 use App\Http\Requests\UpdateQuizRequest;
+use App\Models\QuestionValue;
 use App\Models\QuizQuestion;
 use Illuminate\Support\Str;
 
@@ -15,9 +18,18 @@ class QuizController extends Controller
      */
     public function index()
     {
-        return view('dashboard',[
-            'quizlist' => Quiz::where('user_id',auth()->user()->id)->get()
-        ]);
+        
+        if(Auth::user()->role == "admin"){
+            return view('dashboard',[
+                'quizlist'=> Quiz::all(),
+                'user' =>User::all()
+            ]);
+        }else{
+            return view('dashboard',[
+                'quizlist' => Quiz::where('user_id',auth()->user()->id)->get()
+            ]);
+        }
+
     }
 
     /**
@@ -81,15 +93,18 @@ class QuizController extends Controller
         if(is_array($multiplechoices)){
             $multiplechoices = array_chunk($multiplechoices,4);
         }
+         
         // dd($shorts,$longs,$singles,$singlechoices,$multiples,$multiplechoices);
 
         $validatedQuiz = $request->validate([
-            'titleQuiz' => 'required','max:255'
+            'titleQuiz' => 'required','max:255',
+            'desc' => 'required'
         ]);
 
         $uuidQuiz = Str::uuid()->toString();
         $quiz = new Quiz;
         $quiz->quizTitle = $validatedQuiz['titleQuiz'];
+        $quiz->desc = $validatedQuiz['desc'];
         $quiz->user_id = auth()->user()->id;
         $quiz->code = code();
         $quiz->id = $uuidQuiz;
@@ -119,8 +134,54 @@ class QuizController extends Controller
             }
         
         }
+        if(!is_null($singles)){
+            foreach ($singles as $single ) {
+                $uuidQuestion = Str::uuid()->toString();
+                $question = new QuizQuestion;
+                $question->type = 'single';
+                $question->questionTitle = $single[0];
+                $question->quiz_id = $uuidQuiz;
+                $question->id = $uuidQuestion;
+                $question->save();
+                foreach ($singlechoices as $singlechoice) {
+                    foreach ($singlechoice as $value) {
+                        $uuidValue = Str::uuid()->toString();
+                        $questionValue = New QuestionValue;
+                        $questionValue->id = $uuidValue;
+                        $questionValue->question_id = $uuidQuestion;
+                        $questionValue->value = $value;
+                        $questionValue->save();
+                    }
 
-        redirect('/dashboard')->with(['success'=>'Quiz has been added']);
+                }
+            }
+        
+        }
+        if(!is_null($multiples)){
+            foreach ($multiples as $multiple ) {
+                $uuidQuestion = Str::uuid()->toString();
+                $question = new QuizQuestion;
+                $question->type = 'multiple';
+                $question->questionTitle = $multiple[0];
+                $question->quiz_id = $uuidQuiz;
+                $question->id = $uuidQuestion;
+                $question->save();
+                foreach ($multiplechoices as $multiplechoice) {
+                    foreach ($multiplechoice as $value) {
+                        $uuidValue = Str::uuid()->toString();
+                        $questionValue = New QuestionValue;
+                        $questionValue->id = $uuidValue;
+                        $questionValue->question_id = $uuidQuestion;
+                        $questionValue->value = $value;
+                        $questionValue->save();
+                    }
+
+                }
+            }
+        
+        }
+
+        return redirect('/dashboard/quiz')->with(['success'=>'Quiz has been added']);
 
 
 
@@ -153,9 +214,10 @@ class QuizController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Quiz $quiz,$code)
     {
-        Quiz::destroy($id);
-        return redirect()->back()->with(['success'=>'Quiz hass been deleted']);
+        $qusioner = Quiz::find($code);
+        dd($qusioner);
+        return redirect()->back()->with(['success'=>'User has been deleted']);
     }
 }
