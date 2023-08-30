@@ -91,7 +91,7 @@
 
     @endsection
     @section('script')
-    <script src="../../admin/dist/assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script src="{{asset('admin/dist/assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
     <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');

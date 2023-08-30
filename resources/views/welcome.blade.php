@@ -21,15 +21,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="../../landingpage/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="../../landingpage/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../../landingpage/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="{{asset('landingpage/lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('landingpage/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('landingpage/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../../landingpage/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('landingpage/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="../../landingpage/css/style.css" rel="stylesheet">
+    <link href="{{asset('landingpage/css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid" src="../../landingpage/img/hero.png" alt="">
+                            <img class="img-fluid" src="{{asset('landingpage/img/hero.png')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="../../landingpage/img/about.png">
+                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{{asset('landingpage/img/about.png')}}">
                     </div>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                         <h2 class="mt-2">Get To Know How This Works</h2>
                     </div>
                     <div class="col-lg-6">
-                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="../../landingpage/img/make.png">
+                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{{asset('landingpage/img/make.png')}}">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
@@ -232,7 +232,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="../../landingpage/img/test.png">
+                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{{asset('landingpage/img/test.png')}}">
                     </div>
                 </div>
             </div>
@@ -241,7 +241,7 @@
             <div class="container px-lg-5">
                 <div class="row g-5">
                     <div class="col-lg-6">
-                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="../../landingpage/img/result.png">
+                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{{asset('landingpage/img/result.png')}}">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
@@ -295,15 +295,15 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-    <!-- JavaScript ../../landingpage/libraries -->
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../landingpage/lib/wow/wow.min.js"></script>
-    <script src="../../landingpage/lib/easing/easing.min.js"></script>
-    <script src="../../landingpage/lib/waypoints/waypoints.min.js"></script>
-    <script src="../../landingpage/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="../../landingpage/lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="../../landingpage/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="{{asset('landingpage/lib/wow/wow.min.js')}}"></script>
+    <script src="{{asset('landingpage/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('landingpage/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('landingpage/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('landingpage/lib/isotope/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('landingpage/lib/lightbox/js/lightbox.min.js')}}"></script>
 
     <!-- Template Javascript -->    
 
@@ -316,7 +316,7 @@
   });
 });
     </script>
-    <script src="../../landingpage/js/main.js"></script>
+    <script src="{{asset('landingpage/js/main.js')}}"></script>
 </body>
 
 </html>

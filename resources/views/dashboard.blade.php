@@ -61,14 +61,14 @@
 
     @endsection
     @section('script')
-    <script src="../../../admin/dist/assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script src="{{asset('admin/dist/assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
     <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
 
 
-        function copy{
+        function copy {
             var copyText = document.getElementById("code");
         copyText.select();
         copyText.setSelectionRange(0, 99999);
